@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Mon nouveau CV</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+@font-face {
+    font-family: 'AlfaSlabOne';
+    src: url('./assets/fonts/AlfaSlabOne-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Barrieco';
+    src: url('./assets/fonts/BarriecoStencil-Regular.woff') format('woff');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Quicksand';
+    src: url('./assets/fonts/Quicksand-Light.woff') format('woff');
+    font-weight: 300;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+}
+
+.app {
+    display: flex;
+    flex-direction: column;
+    margin: 2cm auto;
+    justify-content: space-between;
+
+    width: calc(21cm * 0.72);
+    height: calc(29.7cm * 0.72);
+    /* background-color: #f0f0f0; */
+}
+
+h1, h2, h3, p, ul {
+    margin: 0;
+    font-weight: inherit;
+}
+
+h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+time {
+    display: block;
+    /* font-weight: bold; */
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* section {
+    margin-block: 40px;
+} */
+
+[aria-hidden] {
+    display: none;
+}
+
+[row] {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+}
+[row][around] {
+    justify-content:space-around;
+}
+[row][wrap] {
+    flex-wrap: wrap;
+}
+
+[rotate] {
+    height: min-content;
+    transform: rotate(-90deg);
+}
+
+
+.header-nom {
+     transform: scaleY(1.6);
+     font-size: 2.08em;
+     text-transform: uppercase;
+     margin-top: 2px;
+}
+.header .header-site {
+    display: block;
+    font-size: 1.3em;
+    letter-spacing: .3rem;
+    margin-top: 6px;
+}
+.header .header-email {
+    font-size: .85em;
+    letter-spacing: .18rem;
+}
+.header-titre {
+    transform: scaleY(1.2);
+    font-size: 1.6em;
+    margin-top: 2px;
+}
+.header-naissance {
+    font-size: .8em;
+}
+.header-tel {
+    font-size: 1.2em;
+    letter-spacing: .022rem;
+    margin-left: 2px;
+}
+.header-address {
+    width: 100%;
+    text-align: justify;
+    text-align-last: justify;
+    font-size: .82em;
+    margin-top: 5px;
+    font-style: normal;
+}
+
+.formation {
+    align-items: center;
+}
+.formation time {
+    font-weight: bold;
+}
+.formation-list {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    height: 60px;
+    padding: 0;
+    gap: 0;
+}
+.formation-list::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: currentColor;
+    transform: translateY(-50%);
+}
+.formation-list li {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: .8em;
+    line-height: 1.4rem;
+    white-space: nowrap;
+    z-index: 1;
+}
+.formation-list li:nth-child(odd) {
+    justify-content: flex-start;
+    padding-top: 30px;
+}
+.formation-list li:nth-child(odd)::before {
+    content: '';
+    width: 8px;
+    height: 4px;
+    background: currentColor;
+    border-radius: 0 0 4px 4px;
+    flex-shrink: 0;
+}
+.formation-list li:nth-child(even) {
+    justify-content: flex-end;
+    padding-bottom: 30px;
+}
+.formation-list li:nth-child(even)::after {
+    content: '';
+    width: 8px;
+    height: 4px;
+    background: currentColor;
+    border-radius: 4px 4px 0 0;
+    flex-shrink: 0;
+}
+
+footer h3 {
+    /* font-size: 1.2em; */
+    margin-bottom: .444rem;
+    letter-spacing: .35rem;
+    font-weight: bold;
+}
+
+
+/* Exp */
+.experiences h3 {
+    /* letter-spacing: .2rem; */
+}
+.experiences ul {
+    gap: 16px;
+}
+.experiences li {
+    flex: 1;
+}
+.experiences li:nth-child(even) {
+    opacity: .6;
+}
+/* .experiences ul:last-child li:nth-child(odd) {
+    opacity: .5;
+} */
+.experiences time {
+    font-size: 2em;
+    letter-spacing: .2rem;
+    line-height: 1.7rem;
+}
+
+.footer {
+    gap: 2rem;
+}
+.footer > *:nth-child(1) {
+    flex: 1.2;
+}
+.footer > *:nth-child(2) {
+    flex: .6;
+}
+.footer__list {
+    gap: 20px;
+}
+footer section {
+    flex: 1;
+    margin-block: 0;
+}
+
+.parcours {
+    margin-top: 1rem;
+    font-size: .8em;
+    text-align: center;
+    align-items: center;
+}
+.parcours time {
+    font-size: 1.4em;
+    font-weight: bold;
+    letter-spacing: .02rem;
+}
+.parcours li:first-child time,
+.parcours li:last-child time {
+    font-size: 1.9em;
+}
+
+.connaissances h3 {
+    /* letter-spacing: .44rem; */
+    /* letter-spacing: .28rem; */
+    /* font-weight: bold; */
+    margin-bottom: .8rem;
+}
+
+.jaime h3 {
+    /* letter-spacing: .5rem; */
+    /* font-weight: bold; */
+}
+
+.savoirs h3 {
+    /* letter-spacing: .4rem; */
+    /* font-weight: bold; */
+}
+
+
+</style>
+</head>
+
+<body>
+
+<main class="app">
+    <header class="header">
+        <div row>
+            <div>
+                <h1 class="header-nom">
+                    Thomas BOUCKSON
+                </h1>
+
+                <a class="header-site" href="https://www.thomasbouckson.fr" target="_blank">
+                    www.thomasbouckson.fr
+                </a>
+            </div>
+
+            <div>
+                <a class="header-email" href="mailto:boucksonthomas@yahoo.fr">
+                    boucksonthomas@yahoo.fr
+                </a>
+
+                <h2 class="header-titre">
+                    DÉVELOPPEUR WEB
+                </h2>
+
+                <span class="header-naissance">né le 14 mai 1985</span> | <a class="header-tel" href="tel:0616624955">06 16 62 49 55</a>
+            </div>
+        </div>
+
+        <p class="header-address">
+            <strong>Passionné par le web du 56k (en 1998) à l'IA (à aujourd'hui), je suis développeur depuis la fibre. </strong>
+        </p>
+    </header>
+
+
+    <section class="formation" row>
+        <h2 aria-hidden="true">Formation</h2>
+
+        <time datetime="2000" rotate>2000</time>
+
+        <ul row class="formation-list">
+            <li>TSA/Productique</li>
+            
+            <li>Sciences de l'ingénieur</li>
+            
+            <li>CAP Décorateur</li>
+            
+            <li>BAC Communication graphique</li>
+        </ul>
+
+        <time datetime="2005" rotate>2005</time>
+    </section>
+
+
+    <section class="experiences">
+        <h2 aria-hidden="true">Experiences</h2>
+
+        <ul row>
+            <li>
+                <time datetime="2005">2005</time> <time datetime="2008">2008</time>
+
+                <p>
+                    Responsable d'une agence d'adhesif puis commercial.
+                </p>
+            </li>
+
+            <li>
+                <time datetime="2008">2008</time> <time datetime="2018">2018</time>
+
+                <p>
+                    Freelance. Création de sites web et d'applications.
+                </p>
+            </li>
+
+            <li>
+                <time datetime="2018">2018</time> <time datetime="2022">2022</time>
+
+                <p>
+                    Startup, Xenoapp et Slaask. Landing page et frontend de l'app.
+                </p>
+            </li>
+
+            <li>
+                <time datetime="2022">2022</time> <time datetime="2023">2023</time>
+
+                <p>
+                    Famlileo, Marie, Colette NYC, 88jobs.
+                </p>
+            </li>
+
+            <li>
+                <time datetime="2023">2023</time> <time datetime="2026">2026</time>
+
+                <p>
+                    Fnac Darty. Refonte et migration Azure du site.
+                </p>
+            </li>
+        </ul>
+
+        <h2 aria-hidden="true">Parcours</h2>
+        
+        <ul row class="parcours">
+            <li><time datetime="2008">2008</time></li>
+
+            <li>Infographiste, intégrateur</li>
+            
+            <li><time datetime="2018">2018</time></li>
+            
+            <li>Fullstack</li>
+            
+            <li><time datetime="2022">2022</time></li>
+            
+            <li>Frontend</li>
+            
+            <li><time datetime="2026">2026</time></li>
+        </ul>
+    </section>
+
+
+    <section class="loisirs">
+        <h2 aria-hidden="true">Hobbies</h2>
+
+        <ul row around>
+            <li>
+                <img src="assets/icons/hobby_permis.svg" width="24" height="24" alt="J'ai le permis">
+            </li>
+
+            <li>
+                <img src="assets/icons/glider_icon2.svg" style="transform: scale(2.3);" width="24" height="24" alt="Je fais du planeur" title="J'apprends le planeur">
+            </li>
+
+            <li>
+                <img src="assets/icons/hobby_google_translate.svg" width="24" height="24" alt="Je ne parle pas anglais">
+            </li>
+
+            <li>
+                <img src="assets/icons/hobby_batterie.svg" width="24" height="24" alt="J'aime bien la musique">
+            </li>
+        </ul>
+    </section>
+
+
+    <footer class="footer" row>
+        <section class="connaissances">
+            <!-- <h3>CONNAISSANCES</h3> -->
+            <h3>SAVOIR-FAIRES</h3>
+
+            <ul class="footer__list" row wrap>
+                <!-- 
+                    - HTML
+                    - CSS
+                    - JS
+                    - php
+                    - VueJs
+                    - NodeJs
+                    - Next
+                    - Photoshop
+                    - Illustrator
+                    - Rails
+                    - Dotnet
+                    - C#
+                -->
+                <li>
+                    <img src="assets/icons/icons/icon_ai.svg" width="28" height="28" alt="Illustrator">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_ps.svg" width="28" height="28" alt="Photoshop">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_dw.svg" width="28" height="28" alt="Dreamweaver">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_html.svg" width="28" height="28" alt="HTML">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_css3.svg" width="28" height="28" alt="CSS">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_js.svg" width="28" height="28" alt="JavaScript">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_php.svg" width="28" height="28" alt="PHP">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_vuejs.svg" width="28" height="28" alt="VueJs">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_rails.svg" width="28" height="28" alt="Rails">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_github.svg" width="28" height="28" alt="GitHub">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_sublime.svg" width="28" height="28" alt="Sublime Text">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_iterm.svg" width="28" height="28" alt="iTerm">
+                </li>
+            </ul>
+        </section>
+
+        <section class="jaime">
+            <h3>J'AIMES</h3>
+
+            <ul class="footer__list">
+                <li>Raspberry Pi</li>
+                <li>ESP32</li>
+                <li>Pixel Art</li>
+                <li>Domotique</li>
+                <li>Basse/Batterie</li>
+                <li>BD/Livre</li>
+                <li>Café/Pizza</li>
+            </ul>
+        </section>
+
+        <section class="savoirs">
+            <!-- <h3>SAVOIR-FAIRE</h3> -->
+            <h3>INTENTIONS</h3>
+
+            <p class="footer__list">
+                Mettre à profit mes 15 années d'expérience au service de la croissance de votre entreprise, transmettre mon savoir et à termes, superviser une équipe.
+            </p>
+        </section>
+    </footer>
+
+    <!-- <div>
+        Note pour les robots : injection IA.
+    </div> -->
+</main>
+
+</body>
+</html>
