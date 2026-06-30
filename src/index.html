@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Mon nouveau CV</title>
+<title>Thomas BOUCKSON — Développeur Front-end Senior</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CV de Thomas Bouckson, développeur front-end senior spécialisé en Vue.js, TypeScript et Next.js, avec 20 ans d'expérience web.">
 
 <style>
 
@@ -73,8 +74,16 @@ a:hover {
     margin-block: 40px;
 } */
 
-[aria-hidden] {
-    display: none;
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
 }
 
 [row] {
@@ -106,7 +115,14 @@ a:hover {
     display: block;
     font-size: 1.3em;
     letter-spacing: .3rem;
-    margin-top: 6px;
+    margin-top: 6px;    
+}
+.header .header-github {
+    display: block;
+    font-size: .78em;
+    letter-spacing: .12rem;
+    margin-top: 3px;
+    opacity: .65;
 }
 .header .header-email {
     font-size: .85em;
@@ -114,8 +130,18 @@ a:hover {
 }
 .header-titre {
     transform: scaleY(1.2);
-    font-size: 1.6em;
+    /* font-size: 1.6em; */
+    font-size: 1.26em;
     margin-top: 2px;
+    /* vertical-align: top; */
+    white-space: nowrap;
+}
+.header-titre span {
+    font-size: 1rem;
+    /* line-height: 1.3rem;
+    display: inline-block;
+    text-align: justify;
+    vertical-align: top; */
 }
 .header-naissance {
     font-size: .8em;
@@ -127,9 +153,9 @@ a:hover {
 }
 .header-address {
     width: 100%;
-    text-align: justify;
-    text-align-last: justify;
+    text-align: left;
     font-size: .82em;
+    line-height: 1.25;
     margin-top: 5px;
     font-style: normal;
 }
@@ -195,17 +221,12 @@ a:hover {
 }
 
 footer h3 {
-    /* font-size: 1.2em; */
     margin-bottom: .444rem;
     letter-spacing: .35rem;
     font-weight: bold;
 }
 
 
-/* Exp */
-.experiences h3 {
-    /* letter-spacing: .2rem; */
-}
 .experiences ul {
     gap: 16px;
 }
@@ -222,6 +243,9 @@ footer h3 {
     font-size: 2em;
     letter-spacing: .2rem;
     line-height: 1.7rem;
+}
+.experiences p {
+    line-height: 1.2;
 }
 
 .footer {
@@ -258,22 +282,8 @@ footer section {
 }
 
 .connaissances h3 {
-    /* letter-spacing: .44rem; */
-    /* letter-spacing: .28rem; */
-    /* font-weight: bold; */
     margin-bottom: .8rem;
 }
-
-.jaime h3 {
-    /* letter-spacing: .5rem; */
-    /* font-weight: bold; */
-}
-
-.savoirs h3 {
-    /* letter-spacing: .4rem; */
-    /* font-weight: bold; */
-}
-
 
 </style>
 </head>
@@ -288,9 +298,13 @@ footer section {
                     Thomas BOUCKSON
                 </h1>
 
-                <a class="header-site" href="https://www.thomasbouckson.fr" target="_blank">
+                <a class="header-site" href="https://www.thomasbouckson.fr" target="_blank" rel="noopener noreferrer">
                     www.thomasbouckson.fr
                 </a>
+
+                <!-- <a class="header-github" href="https://github.com/boucksontom" target="_blank" rel="noopener noreferrer">
+                    github.com/boucksontom
+                </a> -->
             </div>
 
             <div>
@@ -299,7 +313,7 @@ footer section {
                 </a>
 
                 <h2 class="header-titre">
-                    DÉVELOPPEUR WEB
+                    <b>DÉVELOPPEUR</b> <span>FRONT-END<!-- <br>SENIOR --></span>
                 </h2>
 
                 <span class="header-naissance">né le 14 mai 1985</span> | <a class="header-tel" href="tel:0616624955">06 16 62 49 55</a>
@@ -307,13 +321,13 @@ footer section {
         </div>
 
         <p class="header-address">
-            <strong>Passionné par le web du 56k (en 1998) à l'IA (à aujourd'hui), je suis développeur depuis la fibre. </strong>
+            <strong>Développeur front-end senior avec 20 ans d'expérience web, du graphisme aux architectures front modernes. Spécialisé en Vue.js, TypeScript et Next.js, avec une forte exigence sur la qualité UI, l'expérience utilisateur, la performance et l'accessibilité.</strong>
         </p>
     </header>
 
 
-    <section class="formation" row>
-        <h2 aria-hidden="true">Formation</h2>
+    <section class="formation" row aria-labelledby="formation-title">
+        <h2 id="formation-title" class="visually-hidden">Formation</h2>
 
         <time datetime="2000" rotate>2000</time>
 
@@ -331,15 +345,15 @@ footer section {
     </section>
 
 
-    <section class="experiences">
-        <h2 aria-hidden="true">Experiences</h2>
+    <section class="experiences" aria-labelledby="experiences-title">
+        <h2 id="experiences-title" class="visually-hidden">Expériences</h2>
 
         <ul row>
             <li>
                 <time datetime="2005">2005</time> <time datetime="2008">2008</time>
 
                 <p>
-                    Responsable d'une agence d'adhesif puis commercial.
+                    Signalétique et commerce : projets, coordination clients/fournisseurs, production.
                 </p>
             </li>
 
@@ -347,7 +361,7 @@ footer section {
                 <time datetime="2008">2008</time> <time datetime="2018">2018</time>
 
                 <p>
-                    Freelance. Création de sites web et d'applications.
+                    Freelance web : création graphique, intégration, front-end/full-stack en autonomie.
                 </p>
             </li>
 
@@ -355,7 +369,7 @@ footer section {
                 <time datetime="2018">2018</time> <time datetime="2022">2022</time>
 
                 <p>
-                    Startup, Xenoapp et Slaask. Landing page et frontend de l'app.
+                    Front-end SaaS : interfaces internationales, design system Vue.js, qualité UI.
                 </p>
             </li>
 
@@ -363,7 +377,7 @@ footer section {
                 <time datetime="2022">2022</time> <time datetime="2023">2023</time>
 
                 <p>
-                    Famlileo, Marie, Colette NYC, 88jobs.
+                    Missions front-end : e-commerce, RH, lifestyle, contextes FR et US.
                 </p>
             </li>
 
@@ -371,12 +385,12 @@ footer section {
                 <time datetime="2023">2023</time> <time datetime="2026">2026</time>
 
                 <p>
-                    Fnac Darty. Refonte et migration Azure du site.
+                    Fnac Darty : refonte e-commerce, migration Azure, Next.js, qualité/performance.
                 </p>
             </li>
         </ul>
 
-        <h2 aria-hidden="true">Parcours</h2>
+        <h3 class="visually-hidden">Parcours</h3>
         
         <ul row class="parcours">
             <li><time datetime="2008">2008</time></li>
@@ -385,72 +399,47 @@ footer section {
             
             <li><time datetime="2018">2018</time></li>
             
-            <li>Fullstack</li>
+            <li>Full-stack</li>
             
             <li><time datetime="2022">2022</time></li>
             
-            <li>Frontend</li>
+            <li>Front-end</li>
             
             <li><time datetime="2026">2026</time></li>
         </ul>
     </section>
 
 
-    <section class="loisirs">
-        <h2 aria-hidden="true">Hobbies</h2>
+    <section class="loisirs" aria-labelledby="loisirs-title">
+        <h2 id="loisirs-title" class="visually-hidden">Loisirs</h2>
 
         <ul row around>
             <li>
-                <img src="assets/icons/hobby_permis.svg" width="24" height="24" alt="J'ai le permis">
+                <img src="assets/icons/hobby_permis.svg" width="24" height="24" alt="Permis B">
             </li>
 
             <li>
-                <img src="assets/icons/glider_icon2.svg" style="transform: scale(2.3);" width="24" height="24" alt="Je fais du planeur" title="J'apprends le planeur">
+                <img src="assets/icons/glider_icon2.svg" style="transform: scale(2.3);" width="24" height="24" alt="Pilote de planeur">
             </li>
 
             <li>
-                <img src="assets/icons/hobby_google_translate.svg" width="24" height="24" alt="Je ne parle pas anglais">
+                <img src="assets/icons/hobby_google_translate.svg" width="24" height="24" alt="Notions d'anglais">
             </li>
 
             <li>
-                <img src="assets/icons/hobby_batterie.svg" width="24" height="24" alt="J'aime bien la musique">
+                <img src="assets/icons/hobby_batterie.svg" width="24" height="24" alt="Batterie et basse">
             </li>
         </ul>
     </section>
 
 
-    <footer class="footer" row>
+    <footer class="footer" row aria-labelledby="footer-title">
+        <h2 id="footer-title" class="visually-hidden">Informations complémentaires</h2>
+
         <section class="connaissances">
-            <!-- <h3>CONNAISSANCES</h3> -->
-            <h3>SAVOIR-FAIRES</h3>
+            <h3>COMPÉTENCES</h3>
 
             <ul class="footer__list" row wrap>
-                <!-- 
-                    - HTML
-                    - CSS
-                    - JS
-                    - php
-                    - VueJs
-                    - NodeJs
-                    - Next
-                    - Photoshop
-                    - Illustrator
-                    - Rails
-                    - Dotnet
-                    - C#
-                -->
-                <li>
-                    <img src="assets/icons/icons/icon_ai.svg" width="28" height="28" alt="Illustrator">
-                </li>
-
-                <li>
-                    <img src="assets/icons/icons/icon_ps.svg" width="28" height="28" alt="Photoshop">
-                </li>
-
-                <li>
-                    <img src="assets/icons/icons/icon_dw.svg" width="28" height="28" alt="Dreamweaver">
-                </li>
-
                 <li>
                     <img src="assets/icons/icons/icon_html.svg" width="28" height="28" alt="HTML">
                 </li>
@@ -464,15 +453,11 @@ footer section {
                 </li>
 
                 <li>
-                    <img src="assets/icons/icons/icon_php.svg" width="28" height="28" alt="PHP">
-                </li>
-
-                <li>
                     <img src="assets/icons/icons/icon_vuejs.svg" width="28" height="28" alt="VueJs">
                 </li>
 
                 <li>
-                    <img src="assets/icons/icons/icon_rails.svg" width="28" height="28" alt="Rails">
+                    <img src="assets/icons/icons/icon_php.svg" width="28" height="28" alt="PHP">
                 </li>
 
                 <li>
@@ -480,35 +465,56 @@ footer section {
                 </li>
 
                 <li>
-                    <img src="assets/icons/icons/icon_sublime.svg" width="28" height="28" alt="Sublime Text">
+                    <img src="assets/icons/icons/icon_ai.svg" width="28" height="28" alt="Illustrator">
                 </li>
 
                 <li>
-                    <img src="assets/icons/icons/icon_iterm.svg" width="28" height="28" alt="iTerm">
+                    <img src="assets/icons/icons/icon_ps.svg" width="28" height="28" alt="Photoshop">
+                </li>
+                <li>
+                    <img src="assets/icons/icons/icon_ts.svg" width="28" height="28" alt="TypeScript">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_nextjs.svg" width="28" height="28" alt="Next.js">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_nodejs.svg" width="28" height="28" alt="Node.js">
+                </li>
+
+                <li>
+                    <img src="assets/icons/icons/icon_git.svg" width="28" height="28" alt="Git">
                 </li>
             </ul>
+
+            <!-- <p>
+                HTML, CSS, JavaScript, TypeScript, Vue.js, Next.js, Node.js, PHP
+            </p> -->
+
+            <!-- <p>
+                Design system, accessibilité, performance web, qualité UI, intégration soignée
+            </p> -->
         </section>
 
         <section class="jaime">
-            <h3>J'AIMES</h3>
+            <h3>J'AIME</h3>
 
             <ul class="footer__list">
                 <li>Raspberry Pi</li>
-                <li>ESP32</li>
+                <li>ESP32 / Domotique</li>
                 <li>Pixel Art</li>
-                <li>Domotique</li>
-                <li>Basse/Batterie</li>
-                <li>BD/Livre</li>
-                <li>Café/Pizza</li>
+                <li>Basse / Batterie</li>
+                <li>BD / Lecture</li>
+                <li>Planeur</li>
             </ul>
         </section>
 
         <section class="savoirs">
-            <!-- <h3>SAVOIR-FAIRE</h3> -->
-            <h3>INTENTIONS</h3>
+            <h3>OBJECTIF</h3>
 
             <p class="footer__list">
-                Mettre à profit mes 15 années d'expérience au service de la croissance de votre entreprise, transmettre mon savoir et à termes, superviser une équipe.
+                Contribuer à un produit ambitieux, porter la qualité front-end et évoluer vers davantage de responsabilité technique.
             </p>
         </section>
     </footer>

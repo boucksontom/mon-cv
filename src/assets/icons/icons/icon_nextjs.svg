@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 234 234">
+  <path fill="#1a1a1a" d="M41.44,0H192.56C215.47,0,234,19,234,42.5v149c0,23.5-18.53,42.5-41.44,42.5H41.44C18.53,234,0,215,0,191.5V42.5C0,19,18.53,0,41.44,0Z"/>
+  <line x1="67" y1="48" x2="67" y2="186" stroke="white" stroke-width="24" stroke-linecap="butt"/>
+  <line x1="167" y1="48" x2="167" y2="186" stroke="white" stroke-width="24" stroke-linecap="butt"/>
+  <line x1="67" y1="48" x2="167" y2="186" stroke="white" stroke-width="24" stroke-linecap="butt"/>
+</svg>
